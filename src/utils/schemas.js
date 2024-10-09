@@ -5,10 +5,10 @@ const phoneNumberRegex =
 
 export const addProfileSchema = Yup.object({
   name: Yup.string()
-    .min(3, "Name must be at least 2 characters")
+    .min(3, "Name must be at least 3 characters")
     .max(50, "Name must less 50 characters")
     .required("Name is required"),
   number: Yup.string()
-    .required("Phone is required")
+    .required("Number is required")
     .matches(phoneNumberRegex, "Invalid phone number"),
 });
