@@ -1,0 +1,14 @@
+import * as Yup from "Yup";
+
+const phoneNumberRegex =
+  /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+
+export const addProfileSchema = Yup.object({
+  name: Yup.string()
+    .min(3, "Name must be at least 2 characters")
+    .max(50, "Name must less 50 characters")
+    .required("Name is required"),
+  number: Yup.string()
+    .required("Phone is required")
+    .matches(phoneNumberRegex, "Invalid phone number"),
+});
